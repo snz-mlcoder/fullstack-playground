@@ -1,4 +1,3 @@
-n
 
 This repository contains multiple full-stack projects built with different technologies.
 Each project includes its own backend, frontend, and optional Docker setup.
