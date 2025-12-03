@@ -1,14 +1,14 @@
 def simulate_temperature(temp: float, humidity: float, altitude: float) -> float:
     """
-    یک مدل خیلی ساده پیش‌بینی دمای آینده
+    A very simple model for predicting future temperature.
 
-    temp: دمای اولیه
-    humidity: رطوبت
-    altitude: ارتفاع (هر 1000 متر = ~6 درجه کمتر)
+    temp: initial temperature (°C)
+    humidity: relative humidity (%)
+    altitude: altitude in meters (temperature decreases ~6°C per 1000m)
     """
 
-    base = temp - altitude * 0.006    # کاهش دما با ارتفاع
-    effect = humidity * 0.1           # تاثیر رطوبت
-    predicted = base + effect         # نتیجه نهایی
+    base = temp - altitude * 0.006    # temperature drop due to altitude
+    effect = humidity * 0.1           # humidity effect on temperature
+    predicted = base + effect         # final predicted temperature
 
     return predicted
