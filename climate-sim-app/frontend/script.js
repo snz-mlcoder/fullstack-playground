@@ -19,3 +19,10 @@ async function runSimulation() {
   document.getElementById("result").innerText = 
     "Predicted Temp: " + result.prediction.toFixed(2) + "°C";
 }
+
+async function loadSimulationInfo() {
+  const res = await fetch("http://127.0.0.1:8000/simulate/info");
+  const data = await res.json();
+  console.log("Info:", data);
+  document.getElementById("model-info").textContent = JSON.stringify(data, null, 2);
+}
