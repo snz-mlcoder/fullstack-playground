@@ -27,3 +27,8 @@ button {
 button:hover {
   background: #45a049;
 }
+
+.hint {
+  font-size: 0.8rem;
+  color: #666;
+}
