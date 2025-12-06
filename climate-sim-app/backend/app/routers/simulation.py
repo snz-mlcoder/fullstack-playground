@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pydantic import BaseModel , Field 
 from app.services.climate_model import simulate_temperature
 
 router = APIRouter()
@@ -7,10 +7,10 @@ router = APIRouter()
 # ---------- Models ----------
 
 class SimulationInput(BaseModel):
-    temp: float
-    humidity: float
-    altitude: float
-    tenant_id: str
+    temp: float = Field(..., description="Initial temperature in °C (-50 to 60)", ge=-50, le=60)
+    humidity: float = Field(..., description="Humidity percentage (0 to 100)", ge=0, le=100)
+    altitude: float = Field(..., description="Altitude in meters (must be >= 0)", ge=0)
+    tenant_id: str = Field(..., description="Tenant identifier")
 
 class SimulationResult(BaseModel):
     tenant: str
